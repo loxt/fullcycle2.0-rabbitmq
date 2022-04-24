@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3.9.14-management"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - "RABBITMQ_DEFAULT_USER=admin"
+      - "RABBITMQ_DEFAULT_PASS=admin"
+      - "RABBITMQ_DEFAULT_VHOST=/"
+      - "RABBITMQ_ERLANG_COOKIE=rabbitmqadmin"
+      - "RABBITMQ_NODENAME=rabbit@rabbitmq"
+      - "RABBITMQ_USE_LONGNAME=true"
+      - "RABBITMQ_LOG_LEVEL=info"
+      - "RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq.config"
+      - "RABBITMQ_ENABLED_PLUGINS_FILE=/etc/rabbitmq/enabled_plugins"
+      - "RABBITMQ_PLUGINS_ENABLED=rabbitmq_management"
